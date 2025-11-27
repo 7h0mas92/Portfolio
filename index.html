@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Cornu | Développeur Web Junior</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">TC.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Salut, je suis <span class="highlight">Thomas Cornu</span></h1>
+            <h2>Étudiant en Développement Web</h2>
+            <p>J'ai 18 ans et je transforme des idées en sites web fonctionnels et créatifs.</p>
+            <a href="#projects" class="btn">Voir mes projets</a>
+            <a href="#contact" class="btn btn-outline">Me contacter</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Passionné par le numérique depuis mon plus jeune âge, j'ai décidé de transformer cette passion en métier. Actuellement en formation de développement web, j'apprends chaque jour de nouvelles technologies.</p>
+                    <p>Je suis curieux, persévérant et j'aime résoudre des problèmes complexes grâce au code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Mes Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react"></i>
+                    <h3>React (Base)</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git / GitHub</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-terminal"></i>
+                    <h3>VS Code</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <div class="placeholder-img">Projet 1</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Site E-commerce</h3>
+                        <p>Une boutique en ligne fictive avec panier et gestion de produits.</p>
+                        <div class="tech-stack">
+                            <span>HTML</span><span>CSS</span><span>JS</span>
+                        </div>
+                        <a href="#" class="project-link">Voir le code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                         <div class="placeholder-img">Projet 2</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>To-Do List App</h3>
+                        <p>Application de gestion de tâches avec sauvegarde locale.</p>
+                        <div class="tech-stack">
+                            <span>JavaScript</span><span>LocalStorage</span>
+                        </div>
+                        <a href="#" class="project-link">Voir le code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                 <div class="project-card">
+                    <div class="project-img">
+                         <div class="placeholder-img">Projet 3</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Portfolio V1</h3>
+                        <p>Mon tout premier site personnel créé au début de mes études.</p>
+                        <div class="tech-stack">
+                            <span>HTML</span><span>CSS</span><span>JS</span>
+                        </div>
+                        <a href="#" class="project-link">Voir le code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            <p style="text-align: center; color: #ccc;">Une opportunité ou une question ? N'hésitez pas !</p>
+            
+            <form class="contact-form">
+                <input type="text" placeholder="Votre Nom" required>
+                <input type="email" placeholder="Votre Email" required>
+                <textarea rows="5" placeholder="Votre Message" required></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+
+            <div class="social-links">
+                <a href="https://github.com/7h0mas92"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/thomas-cornu-04bbb1366"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:tcornu92@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Thomas Cornu. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
