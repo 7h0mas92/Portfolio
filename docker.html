@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Docker Laravel | Thomas Cornu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">TC.</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Accueil</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="index.html#skills">Compétences</a></li>
+            <li><a href="index.html#projects">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="project-content">
+            <a href="index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i>Retour aux projets
+            </a>
+
+            <div class="project-header">
+                <h1>Projet Docker Laravel</h1>
+                <p style="color: var(--text-grey); font-size: 1.2rem; max-width: 800px; margin: 20px auto;">
+                    Architecture multi-applications avec base de données partagée via conteneurisation Docker
+                </p>
+                <div class="tech-tags">
+                    <span>Docker</span>
+                    <span>Laravel</span>
+                    <span>MySQL</span>
+                    <span>Nginx</span>
+                    <span>PHP-FPM</span>
+                    <span>Docker Compose</span>
+                </div>
+            </div>
+
+            <div class="project-image">
+                <img src="projet1.png" alt="Projet Docker Laravel">
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> À propos du projet</h2>
+                <p>
+                    Ce projet représente une solution d'architecture moderne permettant de connecter deux applications web distinctes à une base de données MySQL unique via Docker. L'objectif principal était de créer un environnement de développement reproductible et isolé tout en permettant le partage de données entre plusieurs applications Laravel.
+                </p>
+                <p>
+                    La conteneurisation Docker garantit que chaque service fonctionne dans son propre environnement isolé, ce qui simplifie le déploiement et réduit les conflits de dépendances. Cette approche démontre une compréhension approfondie des concepts DevOps et des architectures cloud-native.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-bullseye"></i> Objectifs</h2>
+                <ul>
+                    <li>Créer une architecture multi-applications avec partage de données centralisé</li>
+                    <li>Implémenter une solution conteneurisée complète avec Docker</li>
+                    <li>Assurer l'isolation des environnements tout en permettant la communication</li>
+                    <li>Optimiser la persistance des données avec des volumes Docker</li>
+                    <li>Faciliter le déploiement et la maintenance des applications</li>
+                    <li>Mettre en place une infrastructure évolutive et maintenable</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-cogs"></i> Fonctionnalités clés</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fab fa-docker"></i>
+                        <h4>Conteneurisation complète</h4>
+                        <p>Tous les services sont conteneurisés pour garantir la portabilité et l'isolation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-database"></i>
+                        <h4>Base de données partagée</h4>
+                        <p>MySQL centralisé accessible par plusieurs applications Laravel simultanément.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-server"></i>
+                        <h4>Nginx & PHP-FPM</h4>
+                        <p>Configuration optimisée de Nginx comme reverse proxy avec PHP-FPM.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hdd"></i>
+                        <h4>Volumes persistants</h4>
+                        <p>Gestion des volumes Docker pour la persistance des données et du code.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>Réseau Docker</h4>
+                        <p>Configuration réseau permettant la communication inter-conteneurs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>Docker Compose</h4>
+                        <p>Orchestration simplifiée de tous les services avec un fichier YAML.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-layer-group"></i> Architecture technique</h2>
+                <h3>Services Docker</h3>
+                <ul>
+                    <li><strong>Application Laravel 1 :</strong> Premier site web avec son propre conteneur Nginx/PHP-FPM</li>
+                    <li><strong>Application Laravel 2 :</strong> Deuxième site web avec configuration similaire mais indépendante</li>
+                    <li><strong>MySQL :</strong> Serveur de base de données partagé entre les deux applications</li>
+                    <li><strong>Nginx :</strong> Serveur web et reverse proxy pour chaque application</li>
+                    <li><strong>PHP-FPM :</strong> Gestionnaire de processus FastCGI pour PHP</li>
+                </ul>
+
+                <h3>Configuration</h3>
+                <p>Le projet utilise Docker Compose pour orchestrer tous les services. Chaque service est défini avec :</p>
+                <ul>
+                    <li>Des images Docker officielles ou personnalisées</li>
+                    <li>Des volumes pour la persistance et le développement</li>
+                    <li>Des variables d'environnement pour la configuration</li>
+                    <li>Des ports exposés pour l'accès externe</li>
+                    <li>Des dépendances entre services pour l'ordre de démarrage</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-wrench"></i> Technologies utilisées</h2>
+                <ul>
+                    <li><strong>Docker :</strong> Plateforme de conteneurisation pour l'isolation et la portabilité</li>
+                    <li><strong>Docker Compose :</strong> Outil d'orchestration pour gérer les multi-conteneurs</li>
+                    <li><strong>Laravel :</strong> Framework PHP moderne pour les applications web</li>
+                    <li><strong>MySQL :</strong> Système de gestion de base de données relationnelle</li>
+                    <li><strong>Nginx :</strong> Serveur web haute performance et reverse proxy</li>
+                    <li><strong>PHP-FPM :</strong> Gestionnaire de processus PHP FastCGI</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-graduation-cap"></i> Compétences développées</h2>
+                <ul>
+                    <li>Maîtrise de Docker et de la conteneurisation</li>
+                    <li>Configuration et orchestration de services avec Docker Compose</li>
+                    <li>Gestion des réseaux Docker et de la communication inter-conteneurs</li>
+                    <li>Administration de bases de données MySQL</li>
+                    <li>Configuration de serveurs web Nginx</li>
+                    <li>Compréhension des architectures microservices</li>
+                    <li>Gestion des volumes et de la persistance des données</li>
+                    <li>Débogage et résolution de problèmes dans des environnements conteneurisés</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Défis relevés</h2>
+                <ul>
+                    <li>Configuration du partage de base de données entre plusieurs applications</li>
+                    <li>Gestion des permissions et de la sécurité dans les conteneurs</li>
+                    <li>Optimisation de la configuration Nginx pour les performances</li>
+                    <li>Mise en place de volumes persistants pour le développement</li>
+                    <li>Résolution des problèmes de réseau entre conteneurs</li>
+                    <li>Configuration des variables d'environnement Laravel pour Docker</li>
+                </ul>
+            </div>
+
+            <div class="project-links">
+                <a href="https://github.com/melvinvallot/Docker-projet-thomas-melvin" class="btn" target="_blank">
+                    <i class="fab fa-github"></i> Voir le code sur GitHub
+                </a>
+                <a href="index.html#contact" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Me contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Thomas Cornu. <span>Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
