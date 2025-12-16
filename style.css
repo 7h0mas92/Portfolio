@@ -15,8 +15,10 @@ body {
 /* Variables de couleurs */
 :root {
     --primary-color: #a78bfa; /* Violet clair */
+    --primary-soft: #bca7ff; /* Violet un peu plus clair que la bordure */
     --bg-light: #2a1f3d;
     --text-grey: #c4b5fd;
+    --grey-soft: #d3c7ff; /* Variante éclaircie du gris lavande */
 }
 
 a {
@@ -234,20 +236,21 @@ footer p {
 
 /* Spécifique: boutons de la 1ère section (hero) -> fond de la même couleur que la bordure, un peu plus clair */
 .hero .btn {
-    background: rgba(167, 139, 250, 0.18); /* var(--primary-color) éclaircie */
-    color: var(--primary-color);
+    background: var(--primary-soft);
+    color: #1a1625;
+    border-color: var(--primary-color);
 }
 .hero .btn:hover {
-    background: rgba(167, 139, 250, 0.28);
+    background: color-mix(in srgb, var(--primary-soft) 80%, white 20%);
 }
 .hero .btn-outline {
     border-color: var(--text-grey);
-    color: var(--text-grey);
-    background: rgba(196, 181, 253, 0.16); /* var(--text-grey) éclaircie */
+    color: #1a1625;
+    background: var(--grey-soft);
 }
 .hero .btn-outline:hover {
-    background: rgba(196, 181, 253, 0.28);
-    color: #fff;
+    background: color-mix(in srgb, var(--grey-soft) 80%, white 20%);
+    color: #1a1625;
 }
 
 /* Bouton retour en haut */
@@ -381,8 +384,9 @@ footer p {
 
 .about-tiles {
     display: grid;
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    justify-items: stretch;
 }
 
 /* Tuiles type logo Microsoft (2x2) en s'appuyant sur stat-item) */
@@ -392,10 +396,12 @@ footer p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    gap: 6px;
     border-radius: 10px;
-    padding: 0; /* centrer mieux le contenu */
+    padding: 0;
     background: var(--bg-light);
-    border: 1px solid rgba(167, 139, 250, 0.25);
+    border: 2px solid rgba(167, 139, 250, 0.25);
 }
 
 .about-tiles .stat-number { font-size: 2rem; }
@@ -448,6 +454,8 @@ footer p {
     transition: transform 0.3s;
     border: 2px solid rgba(167, 139, 250, 0.4);
     box-shadow: 0 4px 15px rgba(167, 139, 250, 0.1);
+    display: flex;            /* Permet de caler le lien en bas */
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -476,6 +484,9 @@ footer p {
 
 .project-info {
     padding: 25px;
+    display: flex;            /* Colonne pour gérer la hauteur uniforme */
+    flex-direction: column;
+    flex: 1;                  /* Prend la hauteur restante du card */
 }
 
 .project-info h3 {
@@ -487,6 +498,12 @@ footer p {
     color: var(--text-grey);
     font-size: 0.9rem;
     margin-bottom: 20px;
+    min-height: 90px;         /* Hauteur minimale pour uniformiser les blocs */
+    display: -webkit-box;     /* Optionnel: clamp pour mieux gérer les longs textes */
+    line-clamp: 5;            /* Propriété standard complémentaire */
+    -webkit-line-clamp: 5;    /* 5 lignes max (ajustable) */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .tech-stack {
@@ -502,6 +519,7 @@ footer p {
 .project-link {
     color: #e6f1ff;
     font-weight: 600;
+    margin-top: auto;         /* Pousse le lien en bas du card pour alignement */
 }
 .project-link:hover {
     color: var(--primary-color);
