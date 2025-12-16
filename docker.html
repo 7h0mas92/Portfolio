@@ -13,11 +13,11 @@
     <nav class="navbar">
         <div class="logo">TC.</div>
         <ul class="nav-links">
-            <li><a href="index.html#home">Accueil</a></li>
-            <li><a href="index.html#about">À propos</a></li>
-            <li><a href="index.html#skills">Compétences</a></li>
-            <li><a href="index.html#projects">Projets</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#home" data-translate="nav_home">Accueil</a></li>
+            <li><a href="index.html#about" data-translate="nav_about">À propos</a></li>
+            <li><a href="index.html#skills" data-translate="nav_skills">Compétences</a></li>
+            <li><a href="index.html#projects" data-translate="nav_projects">Projets</a></li>
+            <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -29,12 +29,12 @@
     <section class="project-detail">
         <div class="project-content">
             <a href="index.html#projects" class="back-link">
-                <i class="fas fa-arrow-left"></i>Retour aux projets
+                <i class="fas fa-arrow-left"></i><span data-translate="back_to_projects">Retour aux projets</span>
             </a>
 
             <div class="project-header">
-                <h1>Projet Docker Laravel</h1>
-                <p style="color: var(--text-grey); font-size: 1.2rem; max-width: 800px; margin: 20px auto;">
+                <h1 data-translate="docker_title">Projet Docker Laravel</h1>
+                <p style="color: var(--text-grey); font-size: 1.2rem; max-width: 800px; margin: 20px auto;" data-translate="docker_subtitle">
                     Architecture multi-applications avec base de données partagée via conteneurisation Docker
                 </p>
                 <div class="tech-tags">
@@ -52,129 +52,129 @@
             </div>
 
             <div class="project-section">
-                <h2><i class="fas fa-info-circle"></i> À propos du projet</h2>
-                <p>
+                <h2><i class="fas fa-info-circle"></i> <span data-translate="docker_about_title">À propos du projet</span></h2>
+                <p data-translate="docker_about_p1">
                     Ce projet représente une solution d'architecture moderne permettant de connecter deux applications web distinctes à une base de données MySQL unique via Docker. L'objectif principal était de créer un environnement de développement reproductible et isolé tout en permettant le partage de données entre plusieurs applications Laravel.
                 </p>
-                <p>
+                <p data-translate="docker_about_p2">
                     La conteneurisation Docker garantit que chaque service fonctionne dans son propre environnement isolé, ce qui simplifie le déploiement et réduit les conflits de dépendances. Cette approche démontre une compréhension approfondie des concepts DevOps et des architectures cloud-native.
                 </p>
             </div>
 
             <div class="project-section">
-                <h2><i class="fas fa-bullseye"></i> Objectifs</h2>
+                <h2><i class="fas fa-bullseye"></i> <span data-translate="docker_objectives_title">Objectifs</span></h2>
                 <ul>
-                    <li>Créer une architecture multi-applications avec partage de données centralisé</li>
-                    <li>Implémenter une solution conteneurisée complète avec Docker</li>
-                    <li>Assurer l'isolation des environnements tout en permettant la communication</li>
-                    <li>Optimiser la persistance des données avec des volumes Docker</li>
-                    <li>Faciliter le déploiement et la maintenance des applications</li>
-                    <li>Mettre en place une infrastructure évolutive et maintenable</li>
+                    <li data-translate="docker_obj_1">Créer une architecture multi-applications avec partage de données centralisé</li>
+                    <li data-translate="docker_obj_2">Implémenter une solution conteneurisée complète avec Docker</li>
+                    <li data-translate="docker_obj_3">Assurer l'isolation des environnements tout en permettant la communication</li>
+                    <li data-translate="docker_obj_4">Optimiser la persistance des données avec des volumes Docker</li>
+                    <li data-translate="docker_obj_5">Faciliter le déploiement et la maintenance des applications</li>
+                    <li data-translate="docker_obj_6">Mettre en place une infrastructure évolutive et maintenable</li>
                 </ul>
             </div>
 
             <div class="project-section">
-                <h2><i class="fas fa-cogs"></i> Fonctionnalités clés</h2>
+                <h2><i class="fas fa-cogs"></i> <span data-translate="docker_features_title">Fonctionnalités clés</span></h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <i class="fab fa-docker"></i>
-                        <h4>Conteneurisation complète</h4>
-                        <p>Tous les services sont conteneurisés pour garantir la portabilité et l'isolation.</p>
+                        <h4 data-translate="docker_feat1_title">Conteneurisation complète</h4>
+                        <p data-translate="docker_feat1_desc">Tous les services sont conteneurisés pour garantir la portabilité et l'isolation.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-database"></i>
-                        <h4>Base de données partagée</h4>
-                        <p>MySQL centralisé accessible par plusieurs applications Laravel simultanément.</p>
+                        <h4 data-translate="docker_feat2_title">Base de données partagée</h4>
+                        <p data-translate="docker_feat2_desc">MySQL centralisé accessible par plusieurs applications Laravel simultanément.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-server"></i>
-                        <h4>Nginx & PHP-FPM</h4>
-                        <p>Configuration optimisée de Nginx comme reverse proxy avec PHP-FPM.</p>
+                        <h4 data-translate="docker_feat3_title">Nginx & PHP-FPM</h4>
+                        <p data-translate="docker_feat3_desc">Configuration optimisée de Nginx comme reverse proxy avec PHP-FPM.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-hdd"></i>
-                        <h4>Volumes persistants</h4>
-                        <p>Gestion des volumes Docker pour la persistance des données et du code.</p>
+                        <h4 data-translate="docker_feat4_title">Volumes persistants</h4>
+                        <p data-translate="docker_feat4_desc">Gestion des volumes Docker pour la persistance des données et du code.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-network-wired"></i>
-                        <h4>Réseau Docker</h4>
-                        <p>Configuration réseau permettant la communication inter-conteneurs.</p>
+                        <h4 data-translate="docker_feat5_title">Réseau Docker</h4>
+                        <p data-translate="docker_feat5_desc">Configuration réseau permettant la communication inter-conteneurs.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-code-branch"></i>
-                        <h4>Docker Compose</h4>
-                        <p>Orchestration simplifiée de tous les services avec un fichier YAML.</p>
+                        <h4 data-translate="docker_feat6_title">Docker Compose</h4>
+                        <p data-translate="docker_feat6_desc">Orchestration simplifiée de tous les services avec un fichier YAML.</p>
                     </div>
                 </div>
             </div>
 
             <div class="project-section">
-                <h2><i class="fas fa-layer-group"></i> Architecture technique</h2>
-                <h3>Services Docker</h3>
+                <h2><i class="fas fa-layer-group"></i> <span data-translate="docker_architecture_title">Architecture technique</span></h2>
+                <h3 data-translate="docker_arch_services">Services Docker</h3>
                 <ul>
-                    <li><strong>Application Laravel 1 :</strong> Premier site web avec son propre conteneur Nginx/PHP-FPM</li>
-                    <li><strong>Application Laravel 2 :</strong> Deuxième site web avec configuration similaire mais indépendante</li>
-                    <li><strong>MySQL :</strong> Serveur de base de données partagé entre les deux applications</li>
-                    <li><strong>Nginx :</strong> Serveur web et reverse proxy pour chaque application</li>
-                    <li><strong>PHP-FPM :</strong> Gestionnaire de processus FastCGI pour PHP</li>
+                    <li><strong>Application Laravel 1 :</strong> <span data-translate="docker_arch_service1">Premier site web avec son propre conteneur Nginx/PHP-FPM</span></li>
+                    <li><strong>Application Laravel 2 :</strong> <span data-translate="docker_arch_service2">Deuxième site web avec configuration similaire mais indépendante</span></li>
+                    <li><strong>MySQL :</strong> <span data-translate="docker_arch_service3">Serveur de base de données partagé entre les deux applications</span></li>
+                    <li><strong>Nginx :</strong> <span data-translate="docker_arch_service4">Serveur web et reverse proxy pour chaque application</span></li>
+                    <li><strong>PHP-FPM :</strong> <span data-translate="docker_arch_service5">Gestionnaire de processus FastCGI pour PHP</span></li>
                 </ul>
 
-                <h3>Configuration</h3>
-                <p>Le projet utilise Docker Compose pour orchestrer tous les services. Chaque service est défini avec :</p>
+                <h3 data-translate="docker_arch_config">Configuration</h3>
+                <p data-translate="docker_arch_config_intro">Le projet utilise Docker Compose pour orchestrer tous les services. Chaque service est défini avec :</p>
                 <ul>
-                    <li>Des images Docker officielles ou personnalisées</li>
-                    <li>Des volumes pour la persistance et le développement</li>
-                    <li>Des variables d'environnement pour la configuration</li>
-                    <li>Des ports exposés pour l'accès externe</li>
-                    <li>Des dépendances entre services pour l'ordre de démarrage</li>
-                </ul>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-wrench"></i> Technologies utilisées</h2>
-                <ul>
-                    <li><strong>Docker :</strong> Plateforme de conteneurisation pour l'isolation et la portabilité</li>
-                    <li><strong>Docker Compose :</strong> Outil d'orchestration pour gérer les multi-conteneurs</li>
-                    <li><strong>Laravel :</strong> Framework PHP moderne pour les applications web</li>
-                    <li><strong>MySQL :</strong> Système de gestion de base de données relationnelle</li>
-                    <li><strong>Nginx :</strong> Serveur web haute performance et reverse proxy</li>
-                    <li><strong>PHP-FPM :</strong> Gestionnaire de processus PHP FastCGI</li>
+                    <li data-translate="docker_arch_config1">Des images Docker officielles ou personnalisées</li>
+                    <li data-translate="docker_arch_config2">Des volumes pour la persistance et le développement</li>
+                    <li data-translate="docker_arch_config3">Des variables d'environnement pour la configuration</li>
+                    <li data-translate="docker_arch_config4">Des ports exposés pour l'accès externe</li>
+                    <li data-translate="docker_arch_config5">Des dépendances entre services pour l'ordre de démarrage</li>
                 </ul>
             </div>
 
             <div class="project-section">
-                <h2><i class="fas fa-graduation-cap"></i> Compétences développées</h2>
+                <h2><i class="fas fa-wrench"></i> <span data-translate="docker_tech_title">Technologies utilisées</span></h2>
                 <ul>
-                    <li>Maîtrise de Docker et de la conteneurisation</li>
-                    <li>Configuration et orchestration de services avec Docker Compose</li>
-                    <li>Gestion des réseaux Docker et de la communication inter-conteneurs</li>
-                    <li>Administration de bases de données MySQL</li>
-                    <li>Configuration de serveurs web Nginx</li>
-                    <li>Compréhension des architectures microservices</li>
-                    <li>Gestion des volumes et de la persistance des données</li>
-                    <li>Débogage et résolution de problèmes dans des environnements conteneurisés</li>
+                    <li><strong>Docker :</strong> <span data-translate="docker_tech1">Plateforme de conteneurisation pour l'isolation et la portabilité</span></li>
+                    <li><strong>Docker Compose :</strong> <span data-translate="docker_tech2">Outil d'orchestration pour gérer les multi-conteneurs</span></li>
+                    <li><strong>Laravel :</strong> <span data-translate="docker_tech3">Framework PHP moderne pour les applications web</span></li>
+                    <li><strong>MySQL :</strong> <span data-translate="docker_tech4">Système de gestion de base de données relationnelle</span></li>
+                    <li><strong>Nginx :</strong> <span data-translate="docker_tech5">Serveur web haute performance et reverse proxy</span></li>
+                    <li><strong>PHP-FPM :</strong> <span data-translate="docker_tech6">Gestionnaire de processus PHP FastCGI</span></li>
                 </ul>
             </div>
 
             <div class="project-section">
-                <h2><i class="fas fa-lightbulb"></i> Défis relevés</h2>
+                <h2><i class="fas fa-graduation-cap"></i> <span data-translate="docker_skills_title">Compétences développées</span></h2>
                 <ul>
-                    <li>Configuration du partage de base de données entre plusieurs applications</li>
-                    <li>Gestion des permissions et de la sécurité dans les conteneurs</li>
-                    <li>Optimisation de la configuration Nginx pour les performances</li>
-                    <li>Mise en place de volumes persistants pour le développement</li>
-                    <li>Résolution des problèmes de réseau entre conteneurs</li>
-                    <li>Configuration des variables d'environnement Laravel pour Docker</li>
+                    <li data-translate="docker_skill1">Maîtrise de Docker et de la conteneurisation</li>
+                    <li data-translate="docker_skill2">Configuration et orchestration de services avec Docker Compose</li>
+                    <li data-translate="docker_skill3">Gestion des réseaux Docker et de la communication inter-conteneurs</li>
+                    <li data-translate="docker_skill4">Administration de bases de données MySQL</li>
+                    <li data-translate="docker_skill5">Configuration de serveurs web Nginx</li>
+                    <li data-translate="docker_skill6">Compréhension des architectures microservices</li>
+                    <li data-translate="docker_skill7">Gestion des volumes et de la persistance des données</li>
+                    <li data-translate="docker_skill8">Débogage et résolution de problèmes dans des environnements conteneurisés</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> <span data-translate="docker_challenges_title">Défis relevés</span></h2>
+                <ul>
+                    <li data-translate="docker_challenge1">Configuration du partage de base de données entre plusieurs applications</li>
+                    <li data-translate="docker_challenge2">Gestion des permissions et de la sécurité dans les conteneurs</li>
+                    <li data-translate="docker_challenge3">Optimisation de la configuration Nginx pour les performances</li>
+                    <li data-translate="docker_challenge4">Mise en place de volumes persistants pour le développement</li>
+                    <li data-translate="docker_challenge5">Résolution des problèmes de réseau entre conteneurs</li>
+                    <li data-translate="docker_challenge6">Configuration des variables d'environnement Laravel pour Docker</li>
                 </ul>
             </div>
 
             <div class="project-links">
                 <a href="https://github.com/melvinvallot/Docker-projet-thomas-melvin" class="btn" target="_blank">
-                    <i class="fab fa-github"></i> Voir le code sur GitHub
+                    <i class="fab fa-github"></i> <span data-translate="view_code_github">Voir le code sur GitHub</span>
                 </a>
                 <a href="index.html#contact" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> Me contacter
+                    <i class="fas fa-envelope"></i> <span data-translate="contact_me">Me contacter</span>
                 </a>
             </div>
         </div>
@@ -182,7 +182,10 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Thomas Cornu. <span>Tous droits réservés.</span></p>
+            <p>&copy; 2024 Thomas Cornu. <span data-translate="footer_rights">Tous droits réservés.</span></p>
+            <button id="langToggle" class="lang-toggle" title="Changer de langue">
+                <span class="lang-icon">🇫🇷</span>
+            </button>
         </div>
     </footer>
 

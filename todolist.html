@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To‑Do List | Projet</title>
+    <title>Site To‑Do List | Projet</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,11 +13,11 @@
     <nav class="navbar">
         <div class="logo">TC.</div>
         <ul class="nav-links">
-            <li><a href="index.html#home">Accueil</a></li>
-            <li><a href="index.html#about">À propos</a></li>
-            <li><a href="index.html#skills">Compétences</a></li>
-            <li><a href="index.html#projects">Projets</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#home" data-translate="nav_home">Accueil</a></li>
+            <li><a href="index.html#about" data-translate="nav_about">À propos</a></li>
+            <li><a href="index.html#skills" data-translate="nav_skills">Compétences</a></li>
+            <li><a href="index.html#projects" data-translate="nav_projects">Projets</a></li>
+            <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -29,46 +29,140 @@
     <section class="project-detail">
         <div class="project-content">
             <a href="index.html#projects" class="back-link">
-                <i class="fas fa-arrow-left"></i>Retour aux projets
+                <i class="fas fa-arrow-left"></i><span data-translate="back_to_projects">Retour aux projets</span>
             </a>
 
             <div class="project-hero">
                 <div class="hero-grid">
+                    <div class="hero-visual">
+                        <div class="project-image project-screenshot">
+                            <img src="images/projet2.png" alt="Aperçu To‑Do List">
+                        </div>
+                    </div>
                     <div class="hero-copy">
-                        <p class="eyebrow">Application Web</p>
-                        <h1>To‑Do List App</h1>
-                        <p class="lead">
-                            Gestionnaire de tâches simple et rapide avec sauvegarde locale, édition en place, filtres, et une interface responsive. Pensé pour la productivité quotidienne.
+                        <p class="eyebrow" data-translate="todo_eyebrow">Gestion de tâches — JavaScript pur</p>
+                        <h1 data-translate="todo_hero_title">Organisateur personnel élégant</h1>
+                        <p class="lead" data-translate="todo_hero_lead">
+                            Un site web moderne qui transforme la gestion quotidienne des tâches en une expérience fluide et intuitive. Conçu pour fonctionner entièrement offline avec persistance locale des données.
                         </p>
                         <div class="pill-row">
-                            <span class="pill">JavaScript</span>
-                            <span class="pill">HTML5</span>
-                            <span class="pill">CSS3</span>
-                            <span class="pill">LocalStorage</span>
+                            <span class="pill">Vanilla JS</span>
+                            <span class="pill">LocalStorage API</span>
+                            <span class="pill">CSS Grid</span>
+                            <span class="pill">Responsive</span>
                         </div>
-                        <div class="stats-row">
-                            <div class="stat-card">
-                                <p class="stat-label">Fonctionnalités</p>
-                                <p class="stat-value">6</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-rocket"></i> <span data-translate="todo_context_title">Contexte & Vision</span></h2>
+                <p data-translate="todo_context_p1">
+                    Ce projet est né d'un constat simple : les gestionnaires de tâches existants sont souvent surchargés de fonctionnalités inutiles ou nécessitent une connexion permanente. L'objectif était de créer un site minimaliste, rapide, et accessible sans dépendance serveur.
+                </p>
+                <p data-translate="todo_context_p2">
+                    En exploitant l'API LocalStorage du navigateur, le site garantit une disponibilité 100% offline tout en offrant une interface moderne avec système de priorités, dates d'échéance et recherche en temps réel.
+                </p>
+            </div>
+
+            <div class="card-grid three-cols">
+                <div class="card feature-card">
+                    <i class="fas fa-plus-circle"></i>
+                    <h4 data-translate="todo_feat1_title">Création instantanée</h4>
+                    <p data-translate="todo_feat1_desc">Ajout de tâches avec titre, détails, priorité et date limite en un clic.</p>
+                </div>
+                <div class="card feature-card">
+                    <i class="fas fa-sliders"></i>
+                    <h4 data-translate="todo_feat2_title">Filtres avancés</h4>
+                    <p data-translate="todo_feat2_desc">Vue par statut, priorité ou date. Recherche dynamique multi‑critères.</p>
+                </div>
+                <div class="card feature-card">
+                    <i class="fas fa-pen-to-square"></i>
+                    <h4 data-translate="todo_feat3_title">Édition en ligne</h4>
+                    <p data-translate="todo_feat3_desc">Modification directe sans popup, validation automatique.</p>
+                </div>
+                <div class="card feature-card">
+                    <i class="fas fa-palette"></i>
+                    <h4 data-translate="todo_feat4_title">Design adaptatif</h4>
+                    <p data-translate="todo_feat4_desc">Interface optimisée mobile/desktop avec thème sombre élégant.</p>
+                </div>
+                <div class="card feature-card">
+                    <i class="fas fa-trash-alt"></i>
+                    <h4 data-translate="todo_feat5_title">Gestion sélective</h4>
+                    <p data-translate="todo_feat5_desc">Suppression unique ou en masse avec confirmation visuelle.</p>
+                </div>
+                <div class="card feature-card">
+                    <i class="fas fa-cloud-arrow-down"></i>
+                    <h4 data-translate="todo_feat6_title">100% Offline</h4>
+                    <p data-translate="todo_feat6_desc">Aucune connexion requise, données stockées localement.</p>
+                </div>
+            </div>
+
+            <div class="project-section alt">
+                <h2><i class="fas fa-code"></i> <span data-translate="todo_implementation_title">Implémentation technique</span></h2>
+                <div class="split">
+                    <div>
+                        <h3 data-translate="todo_impl_arch">Architecture modulaire</h3>
+                        <ul class="list-bullet">
+                            <li><strong>Gestionnaire d'état</strong> : <span data-translate="todo_impl_arch1">objet central synchronisant UI et storage</span></li>
+                            <li><strong>Rendu déclaratif</strong> : <span data-translate="todo_impl_arch2">génération DOM optimisée par templates</span></li>
+                            <li><strong>Event delegation</strong> : <span data-translate="todo_impl_arch3">gestion performante des interactions</span></li>
+                            <li><strong>Persistance automatique</strong> : <span data-translate="todo_impl_arch4">sauvegarde à chaque modification</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 data-translate="todo_impl_tech">Technologies clés</h3>
+                        <div class="stack-grid two">
+                            <div class="stack-item">
+                                <p class="stack-title">Front‑end</p>
+                                <p class="stack-desc" data-translate="todo_impl_tech1_desc">HTML5 sémantique, CSS3 Grid/Flexbox</p>
                             </div>
-                            <div class="stat-card">
-                                <p class="stat-label">Stockage</p>
-                                <p class="stat-value">Local</p>
+                            <div class="stack-item">
+                                <p class="stack-title">Logique</p>
+                                <p class="stack-desc" data-translate="todo_impl_tech2_desc">JavaScript ES6+ (classes, modules)</p>
                             </div>
-                            <div class="stat-card">
-                                <p class="stat-label">Mode</p>
-                                <p class="stat-value">Offline</p>
+                            <div class="stack-item">
+                                <p class="stack-title">Stockage</p>
+                                <p class="stack-desc" data-translate="todo_impl_tech3_desc">LocalStorage avec sérialisation JSON</p>
+                            </div>
+                            <div class="stack-item">
+                                <p class="stack-title">UX</p>
+                                <p class="stack-desc" data-translate="todo_impl_tech4_desc">Transitions CSS, états hover/focus</p>
                             </div>
                         </div>
                     </div>
-                    <div class="hero-visual">
-                        <div class="project-image project-screenshot">
-                            <img src="images/todolist.png" alt="Aperçu To‑Do List">
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-layer-group"></i> <span data-translate="todo_features_title">Fonctionnalités détaillées</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div>
+                            <p class="timeline-step" data-translate="todo_feature1_title">Système de priorités</p>
+                            <p class="timeline-text" data-translate="todo_feature1_desc">Trois niveaux (Aucune, Moyenne, Haute) avec indicateurs visuels et tri automatique.</p>
                         </div>
-                        <div class="badge-stack">
-                            <span class="badge">UX rapide</span>
-                            <span class="badge">Sans backend</span>
-                            <span class="badge">Responsive</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div>
+                            <p class="timeline-step" data-translate="todo_feature2_title">Dates d'échéance</p>
+                            <p class="timeline-text" data-translate="todo_feature2_desc">Sélecteur natif HTML5, format localisé, et alertes visuelles pour les deadlines.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div>
+                            <p class="timeline-step" data-translate="todo_feature3_title">Recherche intelligente</p>
+                            <p class="timeline-text" data-translate="todo_feature3_desc">Filtrage temps réel sur titre et détails, insensible à la casse.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div>
+                            <p class="timeline-step" data-translate="todo_feature4_title">Compteurs dynamiques</p>
+                            <p class="timeline-text" data-translate="todo_feature4_desc">Statistiques en temps réel : tâches en cours vs terminées.</p>
                         </div>
                     </div>
                 </div>
@@ -76,144 +170,43 @@
 
             <div class="card-grid two-cols">
                 <div class="card highlight">
-                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
-                    <h3>Objectifs</h3>
+                    <div class="card-icon"><i class="fas fa-mountain"></i></div>
+                    <h3 data-translate="todo_challenges_title">Défis techniques</h3>
                     <ul class="list-check">
-                        <li>Créer/éditer/supprimer des tâches sans friction</li>
-                        <li>Persister les données en local (LocalStorage)</li>
-                        <li>Filtrer par statut et rechercher</li>
-                        <li>Interface claire, mobile‑first</li>
+                        <li data-translate="todo_challenge1">Synchronisation état/localStorage sans latence perceptible</li>
+                        <li data-translate="todo_challenge2">Gestion des edge cases (quota storage, corruption JSON)</li>
+                        <li data-translate="todo_challenge3">Performance avec listes de 100+ tâches</li>
+                        <li data-translate="todo_challenge4">Édition inline sans conflit focus/blur</li>
                     </ul>
                 </div>
                 <div class="card highlight">
-                    <div class="card-icon"><i class="fas fa-flag-checkered"></i></div>
-                    <h3>Résultats</h3>
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3 data-translate="todo_solutions_title">Solutions apportées</h3>
                     <ul class="list-check">
-                        <li>Expérience fluide et réactive</li>
-                        <li>Pas de serveur requis (offline‑ready)</li>
-                        <li>Structure JS simple à maintenir</li>
-                        <li>Design cohérent avec le portfolio</li>
+                        <li data-translate="todo_solution1">Debounce sur sauvegardes + fallback gracieux</li>
+                        <li data-translate="todo_solution2">Validation stricte et sanitization des entrées</li>
+                        <li data-translate="todo_solution3">Virtual scrolling et lazy rendering</li>
+                        <li data-translate="todo_solution4">State machine pour les modes d'interaction</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="card-grid three-cols">
-                <div class="card feature-card">
-                    <i class="fas fa-plus-circle"></i>
-                    <h4>Ajout rapide</h4>
-                    <p>Création instantanée de tâches avec clavier/CTA.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-pen"></i>
-                    <h4>Édition en place</h4>
-                    <p>Double‑clic pour modifier, validation immédiate.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-check-circle"></i>
-                    <h4>Complétion</h4>
-                    <p>Marquer terminé avec un simple clic.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-filter"></i>
-                    <h4>Filtres</h4>
-                    <p>Vue Toutes / Actives / Terminées.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-magnifying-glass"></i>
-                    <h4>Recherche</h4>
-                    <p>Filtrage live par mots‑clés.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-database"></i>
-                    <h4>Persistance</h4>
-                    <p>Sauvegarde LocalStorage automatique.</p>
-                </div>
-            </div>
-
-            <div class="project-section alt">
-                <div class="split">
-                    <div>
-                        <h2><i class="fas fa-sitemap"></i> Architecture</h2>
-                        <ul class="list-bullet">
-                            <li>Modules JS pour tâches et vues</li>
-                            <li>LocalStorage pour la persistance</li>
-                            <li>Rendu DOM minimal et ciblé</li>
-                            <li>Styles responsives et accessibles</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2><i class="fas fa-wrench"></i> Stack</h2>
-                        <div class="stack-grid two">
-                            <div class="stack-item">
-                                <p class="stack-title">Langages</p>
-                                <p class="stack-desc">HTML5, CSS3, JavaScript</p>
-                            </div>
-                            <div class="stack-item">
-                                <p class="stack-title">Stockage</p>
-                                <p class="stack-desc">LocalStorage</p>
-                            </div>
-                            <div class="stack-item">
-                                <p class="stack-title">UX</p>
-                                <p class="stack-desc">Animations légères, focus states</p>
-                            </div>
-                            <div class="stack-item">
-                                <p class="stack-title">Qualité</p>
-                                <p class="stack-desc">Simplicité, maintenabilité</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Workflow</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div>
-                            <p class="timeline-step">01 — Conception</p>
-                            <p class="timeline-text">Schéma des états, filtres et interactions.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div>
-                            <p class="timeline-step">02 — Implémentation</p>
-                            <p class="timeline-text">Logique JS, rendu DOM et persistance.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div>
-                            <p class="timeline-step">03 — UI/UX</p>
-                            <p class="timeline-text">Responsive, accessibilité et micro‑interactions.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-dot"></span>
-                        <div>
-                            <p class="timeline-step">04 — Tests</p>
-                            <p class="timeline-text">Vérification offline et cas limites.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-lightbulb"></i> Défis & solutions</h2>
-                <ul class="list-bullet">
-                    <li>Synchronisation UI/stockage → source de vérité unique et re‑rendu ciblé</li>
-                    <li>Édition inline fiable → gestion du focus + validation</li>
-                    <li>Filtrage performant → prédicats simples et idempotents</li>
-                </ul>
+                <h2><i class="fas fa-chart-line"></i> <span data-translate="todo_learnings_title">Apprentissages & Évolutions</span></h2>
+                <p data-translate="todo_learnings_p1">
+                    Ce projet a été une opportunité d'approfondir la manipulation du DOM sans framework, de maîtriser les API natives du navigateur, et de concevoir une architecture maintenable pour du JavaScript vanilla. Il a également permis de développer une sensibilité UX forte, notamment sur la gestion des états de chargement et les feedbacks visuels.
+                </p>
+                <p data-translate="todo_learnings_p2">
+                    Les évolutions futures envisagées incluent : synchronisation cloud optionnelle, PWA avec service worker, tags/catégories pour tâches, et export/import au format JSON.
+                </p>
             </div>
 
             <div class="project-links">
                 <a href="https://7h0mas92.github.io/Site-de-todo-list/" class="btn" target="_blank" rel="noopener">
-                    <i class="fas fa-up-right-from-square"></i> Voir la démo
+                    <i class="fas fa-up-right-from-square"></i> <span data-translate="test_site">Voir le site</span>
                 </a>
                 <a href="index.html#contact" class="btn btn-outline">
-                    <i class="fas fa-envelope"></i> Me contacter
+                    <i class="fas fa-envelope"></i> <span data-translate="discuss_project">Discuter du projet</span>
                 </a>
             </div>
         </div>
@@ -221,7 +214,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Thomas Cornu. <span>Tous droits réservés.</span></p>
+            <p>&copy; 2024 Thomas Cornu. <span data-translate="footer_rights">Tous droits réservés.</span></p>
             <button id="langToggle" class="lang-toggle" title="Changer de langue">
                 <span class="lang-icon">🇫🇷</span>
             </button>
