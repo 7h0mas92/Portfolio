@@ -32,27 +32,21 @@
                 <i class="fas fa-arrow-left"></i><span data-translate="back_to_projects">Retour aux projets</span>
             </a>
 
-            <div class="project-hero">
-                <div class="hero-grid">
-                    <div class="hero-visual">
-                        <div class="project-image project-screenshot">
-                            <img src="images/projet2.png" alt="Aperçu To‑Do List">
-                        </div>
-                    </div>
-                    <div class="hero-copy">
-                        <p class="eyebrow" data-translate="todo_eyebrow">Gestion de tâches — JavaScript pur</p>
-                        <h1 data-translate="todo_hero_title">Organisateur personnel élégant</h1>
-                        <p class="lead" data-translate="todo_hero_lead">
-                            Un site web moderne qui transforme la gestion quotidienne des tâches en une expérience fluide et intuitive. Conçu pour fonctionner entièrement offline avec persistance locale des données.
-                        </p>
-                        <div class="pill-row">
-                            <span class="pill">Vanilla JS</span>
-                            <span class="pill">LocalStorage API</span>
-                            <span class="pill">CSS Grid</span>
-                            <span class="pill">Responsive</span>
-                        </div>
-                    </div>
+            <div class="project-header">
+                <h1 data-translate="todo_hero_title">Organisateur personnel élégant</h1>
+                <p style="color: var(--text-grey); font-size: 1.2rem; max-width: 800px; margin: 20px auto;" data-translate="todo_hero_lead">
+                    Un site web moderne qui transforme la gestion quotidienne des tâches en une expérience fluide et intuitive. Conçu pour fonctionner entièrement offline avec persistance locale des données.
+                </p>
+                <div class="tech-tags">
+                    <span>Vanilla JS</span>
+                    <span>LocalStorage</span>
+                    <span>CSS Grid</span>
+                    <span>Responsive</span>
                 </div>
+            </div>
+
+            <div class="project-image">
+                <img src="images/projet2.png" alt="Aperçu To‑Do List">
             </div>
 
             <div class="project-section">
@@ -65,40 +59,43 @@
                 </p>
             </div>
 
-            <div class="card-grid three-cols">
-                <div class="card feature-card">
-                    <i class="fas fa-plus-circle"></i>
-                    <h4 data-translate="todo_feat1_title">Création instantanée</h4>
-                    <p data-translate="todo_feat1_desc">Ajout de tâches avec titre, détails, priorité et date limite en un clic.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-sliders"></i>
-                    <h4 data-translate="todo_feat2_title">Filtres avancés</h4>
-                    <p data-translate="todo_feat2_desc">Vue par statut, priorité ou date. Recherche dynamique multi‑critères.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-pen-to-square"></i>
-                    <h4 data-translate="todo_feat3_title">Édition en ligne</h4>
-                    <p data-translate="todo_feat3_desc">Modification directe sans popup, validation automatique.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-palette"></i>
-                    <h4 data-translate="todo_feat4_title">Design adaptatif</h4>
-                    <p data-translate="todo_feat4_desc">Interface optimisée mobile/desktop avec thème sombre élégant.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-trash-alt"></i>
-                    <h4 data-translate="todo_feat5_title">Gestion sélective</h4>
-                    <p data-translate="todo_feat5_desc">Suppression unique ou en masse avec confirmation visuelle.</p>
-                </div>
-                <div class="card feature-card">
-                    <i class="fas fa-cloud-arrow-down"></i>
-                    <h4 data-translate="todo_feat6_title">100% Offline</h4>
-                    <p data-translate="todo_feat6_desc">Aucune connexion requise, données stockées localement.</p>
+            <div class="project-section">
+                <h2><i class="fas fa-bullseye"></i> <span data-translate="todo_features_title_short">Fonctionnalités clés</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <h4 data-translate="todo_feat1_title">Création instantanée</h4>
+                        <p data-translate="todo_feat1_desc">Ajout de tâches avec titre, détails, priorité et date limite en un clic.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-sliders"></i>
+                        <h4 data-translate="todo_feat2_title">Filtres avancés</h4>
+                        <p data-translate="todo_feat2_desc">Vue par statut, priorité ou date. Recherche dynamique multi‑critères.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-pen-to-square"></i>
+                        <h4 data-translate="todo_feat3_title">Édition en ligne</h4>
+                        <p data-translate="todo_feat3_desc">Modification directe sans popup, validation automatique.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-palette"></i>
+                        <h4 data-translate="todo_feat4_title">Design adaptatif</h4>
+                        <p data-translate="todo_feat4_desc">Interface optimisée mobile/desktop avec thème sombre élégant.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-trash-alt"></i>
+                        <h4 data-translate="todo_feat5_title">Gestion sélective</h4>
+                        <p data-translate="todo_feat5_desc">Suppression unique ou en masse avec confirmation visuelle.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-cloud-arrow-down"></i>
+                        <h4 data-translate="todo_feat6_title">100% Offline</h4>
+                        <p data-translate="todo_feat6_desc">Aucune connexion requise, données stockées localement.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-section alt">
+            <div class="project-section">
                 <h2><i class="fas fa-code"></i> <span data-translate="todo_implementation_title">Implémentation technique</span></h2>
                 <div class="split">
                     <div>
@@ -168,26 +165,29 @@
                 </div>
             </div>
 
-            <div class="card-grid two-cols">
-                <div class="card highlight">
-                    <div class="card-icon"><i class="fas fa-mountain"></i></div>
-                    <h3 data-translate="todo_challenges_title">Défis techniques</h3>
-                    <ul class="list-check">
-                        <li data-translate="todo_challenge1">Synchronisation état/localStorage sans latence perceptible</li>
-                        <li data-translate="todo_challenge2">Gestion des edge cases (quota storage, corruption JSON)</li>
-                        <li data-translate="todo_challenge3">Performance avec listes de 100+ tâches</li>
-                        <li data-translate="todo_challenge4">Édition inline sans conflit focus/blur</li>
-                    </ul>
-                </div>
-                <div class="card highlight">
-                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3 data-translate="todo_solutions_title">Solutions apportées</h3>
-                    <ul class="list-check">
-                        <li data-translate="todo_solution1">Debounce sur sauvegardes + fallback gracieux</li>
-                        <li data-translate="todo_solution2">Validation stricte et sanitization des entrées</li>
-                        <li data-translate="todo_solution3">Virtual scrolling et lazy rendering</li>
-                        <li data-translate="todo_solution4">State machine pour les modes d'interaction</li>
-                    </ul>
+            <div class="project-section">
+                <h2><i class="fas fa-puzzle-piece"></i> <span data-translate="todo_challenges_title">Défis techniques</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-mountain"></i>
+                        <h4 data-translate="todo_challenge1">Synchronisation état/localStorage sans latence perceptible</h4>
+                        <p data-translate="todo_solution1">Debounce sur sauvegardes + fallback gracieux</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4 data-translate="todo_challenge2">Gestion des edge cases (quota storage, corruption JSON)</h4>
+                        <p data-translate="todo_solution2">Validation stricte et sanitization des entrées</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-gauge-high"></i>
+                        <h4 data-translate="todo_challenge3">Performance avec listes de 100+ tâches</h4>
+                        <p data-translate="todo_solution3">Virtual scrolling et lazy rendering</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        <h4 data-translate="todo_challenge4">Édition inline sans conflit focus/blur</h4>
+                        <p data-translate="todo_solution4">State machine pour les modes d'interaction</p>
+                    </div>
                 </div>
             </div>
 
