@@ -566,6 +566,20 @@ footer p {
     color: var(--primary-color);
 }
 
+.form-status {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--text-grey);
+}
+
+.form-status.success {
+    color: #7ae27a;
+}
+
+.form-status.error {
+    color: #ff9f9f;
+}
+
 footer {
     text-align: center;
     padding: 20px;

@@ -67,6 +67,47 @@ function updateScrollProgress() {
     scrollProgress.style.width = scrolled + '%';
 }
 
+// ==== FORMULAIRE CONTACT ====
+const contactForm = document.getElementById('contactForm');
+const contactStatus = document.getElementById('contactStatus');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const name = formData.get('name')?.trim();
+        const email = formData.get('email')?.trim();
+        const message = formData.get('message')?.trim();
+
+        if (!name || !email || !message) {
+            showStatus('Veuillez remplir tous les champs.', 'error');
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showStatus('Adresse email invalide.', 'error');
+            return;
+        }
+
+        const subject = encodeURIComponent(`Contact Portfolio - ${name}`);
+        const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+        // Utilise mailto pour ouvrir le client mail local
+        window.location.href = `mailto:tcornu92@gmail.com?subject=${subject}&body=${body}`;
+
+        showStatus('Merci ! Votre client mail s\'ouvre pour envoyer le message.', 'success');
+        contactForm.reset();
+    });
+}
+
+function showStatus(text, type = '') {
+    if (!contactStatus) return;
+    contactStatus.textContent = text;
+    contactStatus.classList.remove('success', 'error');
+    if (type) contactStatus.classList.add(type);
+}
+
 // ==== ANIMATION AU SCROLL (FADE IN) ====
 const observerOptions = {
     threshold: 0.1,

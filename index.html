@@ -153,11 +153,12 @@
             <h2 class="section-title" data-translate="contact_title">Contactez-moi</h2>
             <p style="text-align: center; color: #ccc;" data-translate="contact_subtitle">Une opportunité ou une question ? N'hésitez pas !</p>
             
-            <form class="contact-form">
-                <input type="text" data-translate-placeholder="contact_name" placeholder="Votre Nom" required>
-                <input type="email" data-translate-placeholder="contact_email" placeholder="Votre Email" required>
-                <textarea rows="5" data-translate-placeholder="contact_message" placeholder="Votre Message" required></textarea>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="name" data-translate-placeholder="contact_name" placeholder="Votre Nom" required>
+                <input type="email" name="email" data-translate-placeholder="contact_email" placeholder="Votre Email" required>
+                <textarea rows="5" name="message" data-translate-placeholder="contact_message" placeholder="Votre Message" required></textarea>
                 <button type="submit" class="btn" data-translate="contact_btn">Envoyer</button>
+                <div class="form-status" id="contactStatus" aria-live="polite"></div>
             </form>
 
             <div class="social-links">
