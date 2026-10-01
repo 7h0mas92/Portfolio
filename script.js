@@ -1,3 +1,34 @@
+// ==== THÈME (violet par défaut / PSG) ====
+// Le thème sauvegardé est déjà appliqué par le script en ligne du <head> ; ici on gère le bouton.
+const themeToggle = document.querySelector('.theme-toggle');
+
+function applyTheme(theme) {
+    const isPsg = theme === 'psg';
+    if (isPsg) {
+        document.documentElement.dataset.theme = 'psg';
+    } else {
+        delete document.documentElement.dataset.theme;
+    }
+    if (themeToggle) {
+        themeToggle.setAttribute('aria-pressed', String(isPsg));
+        themeToggle.title = isPsg ? 'Revenir au thème violet' : 'Passer au thème PSG';
+    }
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const theme = document.documentElement.dataset.theme === 'psg' ? 'violet' : 'psg';
+        applyTheme(theme);
+        try {
+            localStorage.setItem('theme', theme);
+        } catch {
+            // Stockage indisponible (navigation privée…) : le choix vaut pour cette page seulement
+        }
+    });
+}
+
+applyTheme(document.documentElement.dataset.theme === 'psg' ? 'psg' : 'violet');
+
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
@@ -110,6 +141,7 @@ function showStatus(text, type = '') {
 }
 
 // ==== ANIMATION AU SCROLL (FADE IN) ====
+// Styles .reveal / .is-visible / --reveal-delay dans style.css
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -124,11 +156,54 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Apparition des cartes (styles .reveal / .is-visible dans style.css)
-document.querySelectorAll('.project-card, .skill-card, .stat-item, .project-section').forEach(el => {
+const revealSelector = '.about-text p, .stat-item, .skill-group, .project-card, .section-lead, .contact-form, .social-links, .project-section';
+
+document.querySelectorAll(revealSelector).forEach(el => {
     el.classList.add('reveal');
     observer.observe(el);
 });
+
+// Dans une section, le contenu apparaît en cascade, après le titre
+document.querySelectorAll('.section').forEach(section => {
+    section.querySelectorAll('.reveal').forEach((el, index) => {
+        el.style.setProperty('--reveal-delay', `${0.2 + Math.min(index, 6) * 0.08}s`);
+    });
+});
+
+// ==== ANIMATION ENTRE LES SECTIONS ====
+// À l'entrée d'une section : numéro, titre et trait d'accent s'animent (styles .section-animate / .is-in-view)
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-in-view');
+            sectionObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.section').forEach(section => {
+    section.classList.add('section-animate');
+    sectionObserver.observe(section);
+});
+
+// Lien de navigation de la section en cours (accueil uniquement : liens en #ancre)
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+if (navAnchors.length) {
+    const spyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            navAnchors.forEach(link => {
+                link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
+            });
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' }); // la section qui passe au milieu de l'écran
+
+    navAnchors.forEach(link => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) spyObserver.observe(target);
+    });
+}
 
 // ==== EFFET DE FRAPPE (TYPEWRITER) ====
 const subtitleElement = document.querySelector('.hero h2');
@@ -157,4 +232,75 @@ if (subtitleElement) {
     };
 
     typeWriter(subtitleElement.textContent.trim());
+}
+
+// ==== CV (cv.html) ====
+// Le PDF est dessiné dans la page avec PDF.js (chargé uniquement sur cv.html) :
+// pas de lecteur PDF du navigateur, et le rendu suit automatiquement le fichier cv/*.pdf.
+const cvViewer = document.getElementById('cvViewer');
+
+if (cvViewer) {
+    renderCv();
+}
+
+async function renderCv() {
+    const pdfUrl = cvViewer.dataset.pdf;
+    try {
+        if (!window.pdfjsLib) throw new Error('PDF.js non chargé');
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+        const pages = [];
+        for (let n = 1; n <= pdf.numPages; n++) {
+            const canvas = document.createElement('canvas');
+            canvas.className = 'cv-page';
+            canvas.setAttribute('role', 'img');
+            canvas.setAttribute('aria-label', `CV de Thomas Cornu, page ${n} sur ${pdf.numPages}`);
+            pages.push({ page: await pdf.getPage(n), canvas, task: null });
+        }
+        cvViewer.replaceChildren(...pages.map(p => p.canvas));
+
+        const drawAll = () => pages.forEach(drawCvPage);
+        drawAll();
+
+        // Redessine à la bonne résolution quand la largeur change (rotation, redimensionnement)
+        let resizeTimer;
+        let lastWidth = cvViewer.clientWidth;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (cvViewer.clientWidth !== lastWidth) {
+                    lastWidth = cvViewer.clientWidth;
+                    drawAll();
+                }
+            }, 150);
+        });
+    } catch (error) {
+        // Ex. page ouverte en file:// : PDF.js ne peut pas lire le fichier, on propose le lien
+        console.warn('Affichage du CV impossible :', error);
+        const status = document.createElement('p');
+        status.className = 'cv-viewer__status';
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.textContent = 'ouvrir le PDF';
+        status.append('Le CV ne peut pas être affiché ici. Vous pouvez ', link, '.');
+        cvViewer.replaceChildren(status);
+    }
+}
+
+function drawCvPage(item) {
+    const { page, canvas } = item;
+    if (item.task) item.task.cancel();
+
+    const cssWidth = cvViewer.clientWidth;
+    const scale = cssWidth / page.getViewport({ scale: 1 }).width;
+    const ratio = window.devicePixelRatio || 1;
+    const viewport = page.getViewport({ scale: scale * ratio });
+
+    canvas.width = Math.floor(viewport.width);
+    canvas.height = Math.floor(viewport.height);
+    canvas.style.aspectRatio = `${viewport.width} / ${viewport.height}`;
+
+    item.task = page.render({ canvasContext: canvas.getContext('2d'), viewport });
+    item.task.promise.catch(() => { /* rendu annulé par un redimensionnement : normal */ });
 }

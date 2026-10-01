@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Thomas Cornu | Développeur Web Junior
-    </title>
+    <title>Thomas Cornu | Développeur Web Junior</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +15,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <script>
+      // Applique le thème choisi avant l'affichage pour éviter un flash (sélecteur dans script.js)
+      try {
+        var theme =
+          new URLSearchParams(location.search).get("theme") ||
+          localStorage.getItem("theme");
+        if (theme === "psg") document.documentElement.dataset.theme = "psg";
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <nav class="navbar">
@@ -28,10 +35,30 @@
         <li><a href="#projects">Projets</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
+      <div class="nav-actions">
+        <a class="cv-link" href="cv.html">
+          <i class="fas fa-file-lines" aria-hidden="true"></i>Voir CV
+        </a>
+        <button
+          type="button"
+          class="theme-toggle"
+          aria-pressed="false"
+          aria-label="Thème PSG"
+          title="Passer au thème PSG"
+        >
+          <img
+            class="theme-toggle__logo"
+            src="images/psg-logo.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <span class="theme-toggle__dot" aria-hidden="true"></span>
+        </button>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
       </div>
     </nav>
 
@@ -41,13 +68,9 @@
           Salut, je suis
           <span class="highlight">Thomas Cornu</span>
         </h1>
-        <h2>Étudiant en Développement Web</h2>
-        <a href="#projects" class="btn"
-          >Voir mes projets</a
-        >
-        <a href="#contact" class="btn btn-outline"
-          >Me contacter</a
-        >
+        <h2>Étudiant en Développement Web en recherche d'alternance</h2>
+        <a href="#projects" class="btn">Voir mes projets</a>
+        <a href="#contact" class="btn btn-outline">Me contacter</a>
       </div>
     </section>
 
@@ -85,15 +108,11 @@
             </div>
             <div class="stat-item">
               <span class="stat-number">6+</span>
-              <span class="stat-label"
-                >Technologies</span
-              >
+              <span class="stat-label">Technologies</span>
             </div>
             <div class="stat-item">
               <span class="stat-number">100%</span>
-              <span class="stat-label"
-                >Motivation</span
-              >
+              <span class="stat-label">Motivation</span>
             </div>
           </div>
         </div>
@@ -103,30 +122,124 @@
     <section id="skills" class="section bg-dark">
       <div class="container">
         <h2 class="section-title">Mes Compétences</h2>
-        <div class="skills-grid">
-          <div class="skill-card">
-            <i class="fab fa-html5"></i>
-            <h3>HTML5</h3>
+        <div class="skills-categories">
+          <div class="skill-group">
+            <h3 class="skill-group__title">Langages</h3>
+            <ul class="skill-list">
+              <li class="skill-card">
+                <span class="skill-icons"
+                  ><i class="fab fa-html5" aria-hidden="true"></i
+                  ><i class="fab fa-css3-alt" aria-hidden="true"></i></span
+                >HTML / CSS
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-js" aria-hidden="true"></i>JavaScript
+              </li>
+              <li class="skill-card">
+                <span class="skill-badge" aria-hidden="true">TS</span>TypeScript
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-php" aria-hidden="true"></i>PHP
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-python" aria-hidden="true"></i>Python
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-database" aria-hidden="true"></i>SQL
+              </li>
+              <li class="skill-card">
+                <span class="skill-badge" aria-hidden="true">C++</span>C++
+              </li>
+              <li class="skill-card">
+                <span class="skill-badge" aria-hidden="true">WA</span
+                >WebAssembly
+              </li>
+            </ul>
           </div>
-          <div class="skill-card">
-            <i class="fab fa-css3-alt"></i>
-            <h3>CSS3</h3>
+          <div class="skill-group">
+            <h3 class="skill-group__title">Frameworks</h3>
+            <ul class="skill-list">
+              <li class="skill-card">
+                <i class="fab fa-react" aria-hidden="true"></i>React (Base)
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-vuejs" aria-hidden="true"></i>Vue.js
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-symfony" aria-hidden="true"></i>Symfony
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-bootstrap" aria-hidden="true"></i>Bootstrap
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-wind" aria-hidden="true"></i>Tailwind CSS
+              </li>
+            </ul>
           </div>
-          <div class="skill-card">
-            <i class="fab fa-js"></i>
-            <h3>JavaScript</h3>
+          <div class="skill-group">
+            <h3 class="skill-group__title">Système &amp; DevOps</h3>
+            <ul class="skill-list">
+              <li class="skill-card">
+                <i class="fab fa-linux" aria-hidden="true"></i>Linux
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-terminal" aria-hidden="true"></i>Scripting
+                Shell
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-docker" aria-hidden="true"></i>Docker
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-git-alt" aria-hidden="true"></i>Git / GitHub
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-code" aria-hidden="true"></i>VS Code
+              </li>
+            </ul>
           </div>
-          <div class="skill-card">
-            <i class="fab fa-react"></i>
-            <h3>React (Base)</h3>
+          <div class="skill-group">
+            <h3 class="skill-group__title">Conception &amp; design</h3>
+            <ul class="skill-list">
+              <li class="skill-card">
+                <i class="fas fa-diagram-project" aria-hidden="true"></i>UML
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-figma" aria-hidden="true"></i>Figma
+              </li>
+            </ul>
           </div>
-          <div class="skill-card">
-            <i class="fab fa-git-alt"></i>
-            <h3>Git / GitHub</h3>
+          <div class="skill-group">
+            <h3 class="skill-group__title">Data, IA &amp; automatisation</h3>
+            <ul class="skill-list">
+              <li class="skill-card">
+                <i class="fas fa-brain" aria-hidden="true"></i>Machine Learning
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-robot" aria-hidden="true"></i>IA agentique
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-chart-column" aria-hidden="true"></i>Dataviz
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-gears" aria-hidden="true"></i>Automatisations
+                (n8n, Zapier)
+              </li>
+            </ul>
           </div>
-          <div class="skill-card">
-            <i class="fas fa-terminal"></i>
-            <h3>VS Code</h3>
+          <div class="skill-group">
+            <h3 class="skill-group__title">Web &amp; marketing</h3>
+            <ul class="skill-list">
+              <li class="skill-card">
+                <i class="fab fa-wordpress" aria-hidden="true"></i>WordPress
+              </li>
+              <li class="skill-card">
+                <i class="fab fa-shopify" aria-hidden="true"></i>Shopify
+              </li>
+              <li class="skill-card">
+                <i class="fas fa-bullhorn" aria-hidden="true"></i>Marketing
+                digital
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -150,21 +263,18 @@
                 PHP-FPM) : conteneurisation et scalabilité.
               </p>
               <div class="tech-stack">
-                <span>Docker</span><span>Laravel</span><span>MySQL</span><span>Nginx</span>
+                <span>Docker</span><span>Laravel</span><span>MySQL</span
+                ><span>Nginx</span>
               </div>
               <a href="docker.html" class="project-link"
-                >Voir le projet
-                <i class="fas fa-arrow-right"></i
+                >Voir le projet <i class="fas fa-arrow-right"></i
               ></a>
             </div>
           </div>
 
           <div class="project-card">
             <div class="project-img">
-              <img
-                src="images/projet2.png"
-                alt="Aperçu du site To-Do List"
-              />
+              <img src="images/projet2.png" alt="Aperçu du site To-Do List" />
             </div>
             <div class="project-info">
               <h3>Site To-Do List</h3>
@@ -176,32 +286,26 @@
                 <span>JavaScript</span><span>LocalStorage</span>
               </div>
               <a href="todolist.html" class="project-link"
-                >Voir le projet
-                <i class="fas fa-arrow-right"></i
+                >Voir le projet <i class="fas fa-arrow-right"></i
               ></a>
             </div>
           </div>
 
           <div class="project-card">
             <div class="project-img">
-              <img
-                src="images/projet3.png"
-                alt="Aperçu du Portfolio V1"
-              />
+              <img src="images/projet3.png" alt="Aperçu du Portfolio V1" />
             </div>
             <div class="project-info">
               <h3>Portfolio V1</h3>
-              <p>
-                Portfolio responsive, navigation fluide, animations CSS.
-              </p>
+              <p>Portfolio responsive, navigation fluide, animations CSS.</p>
               <div class="tech-stack">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span
+                ><span>Responsive</span>
               </div>
               <a
                 href="https://7h0mas92.github.io/Portfolio/"
                 class="project-link"
-                >Voir le code
-                <i class="fab fa-github"></i
+                >Voir le code <i class="fab fa-github"></i
               ></a>
             </div>
           </div>
@@ -217,27 +321,15 @@
         </p>
 
         <form class="contact-form" id="contactForm">
-          <input
-            type="text"
-            name="name"
-            placeholder="Votre Nom"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Votre Email"
-            required
-          />
+          <input type="text" name="name" placeholder="Votre Nom" required />
+          <input type="email" name="email" placeholder="Votre Email" required />
           <textarea
             rows="5"
             name="message"
             placeholder="Votre Message"
             required
           ></textarea>
-          <button type="submit" class="btn">
-            Envoyer
-          </button>
+          <button type="submit" class="btn">Envoyer</button>
           <div class="form-status" id="contactStatus" aria-live="polite"></div>
         </form>
 
@@ -257,10 +349,7 @@
 
     <footer>
       <div class="footer-content">
-        <p>
-          &copy; 2024 Thomas Cornu.
-          Tous droits réservés.
-        </p>
+        <p>&copy; 2026 Thomas Cornu. Tous droits réservés.</p>
       </div>
     </footer>
 

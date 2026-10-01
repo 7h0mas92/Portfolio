@@ -1,4 +1,9 @@
-/* ==== DESIGN TOKENS ==== */
+/* ==== DESIGN TOKENS ====
+ * Deux thèmes :
+ * - violet (par défaut) : variables de :root ci-dessous
+ * - PSG : ajouter data-theme="psg" sur <html> (voir « THÈME PSG » juste après)
+ * Les règles du site n'utilisent que ces variables : un thème = un jeu de variables.
+ */
 :root {
     /* Couleurs : encre violette, violet en accent principal, touche citron rare */
     --bg: #0e0c15;
@@ -11,9 +16,19 @@
     --text-muted: #a8a0bd;
     --accent: #a78bfa;
     --accent-strong: #c4b5fd;
+    --accent-hover: #c4b5fd;
     --accent-soft: rgba(167, 139, 250, 0.12);
     --accent-2: #c8f169;
     --on-accent: #0e0c15;
+    --success: #c8f169;
+
+    /* Effets */
+    --dot-color: rgba(238, 234, 247, 0.05);
+    --nav-bg: rgba(14, 12, 21, 0.72);
+    --btn-shadow: rgba(167, 139, 250, 0.25);
+    --hero-glow: rgba(167, 139, 250, 0.22);
+    --highlight-gradient: linear-gradient(100deg, var(--accent-strong), var(--accent) 60%);
+    --progress-gradient: linear-gradient(90deg, var(--accent), var(--accent-2));
 
     /* Typographie */
     --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
@@ -27,6 +42,37 @@
     --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
     --nav-h: 72px;
     --container: 1120px;
+}
+
+/* ==== THÈME PSG ====
+ * Bleu nuit, rouge en accent principal, blanc en touche rare,
+ * et une bande façon maillot dans le hero (voir « .hero::after » plus bas).
+ */
+:root[data-theme="psg"] {
+    --bg: #061226;
+    --bg-alt: #0a1931;
+    --surface: #0f2140;
+    --surface-hover: #142a50;
+    --border: rgba(255, 255, 255, 0.09);
+    --border-accent: rgba(218, 41, 28, 0.55);
+    --text: #f4f6fb;
+    --text-muted: #a3b1c7;
+    --accent: #da291c;
+    --accent-strong: #ff6b5e;
+    --accent-hover: #b81f14; /* plus sombre : le texte blanc reste lisible */
+    --accent-soft: rgba(218, 41, 28, 0.14);
+    --accent-2: #ffffff;
+    --on-accent: #ffffff;
+    --success: #4ade80;
+    --psg-blue: #004170;
+    --psg-blue-light: #1d5fa8;
+
+    --dot-color: rgba(255, 255, 255, 0.05);
+    --nav-bg: rgba(6, 18, 38, 0.78);
+    --btn-shadow: rgba(218, 41, 28, 0.3);
+    --hero-glow: rgba(29, 95, 168, 0.45);
+    --highlight-gradient: linear-gradient(100deg, #ffffff, var(--accent-strong) 55%, var(--accent));
+    --progress-gradient: linear-gradient(90deg, var(--psg-blue-light), #ffffff, var(--accent));
 }
 
 /* ==== BASE ==== */
@@ -50,10 +96,11 @@ body {
     color: var(--text);
     background-color: var(--bg);
     /* Trame de points discrète */
-    background-image: radial-gradient(rgba(238, 234, 247, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
     background-size: 28px 28px;
     -webkit-font-smoothing: antialiased;
     counter-reset: section;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -108,7 +155,9 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: 0 max(5%, calc((100% - var(--container)) / 2));
-    background: rgba(14, 12, 21, 0.72);
+    /* Place réservée au bloc « Voir CV » + thème calé au bord droit */
+    padding-right: max(200px, 5%, calc((100% - var(--container)) / 2));
+    background: var(--nav-bg);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
@@ -137,7 +186,8 @@ img {
     transition: color 0.2s ease, background 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.is-active {
     color: var(--text);
     background: var(--accent-soft);
 }
@@ -170,6 +220,97 @@ img {
     transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Actions à droite de la barre : « Voir CV », bouton de thème et burger (mobile).
+ * Sur ordinateur, le bloc est calé à 20px du bord droit de l'écran. */
+.nav-actions {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==== LIEN « VOIR CV » ==== */
+.cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--border-accent);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--text);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.cv-link i {
+    color: var(--accent);
+}
+
+.cv-link:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+}
+
+/* ==== BOUTON DE THÈME ====
+ * Rond discret calé au bord droit de l'écran (dans le flux à côté du burger sur mobile).
+ * En thème violet il montre le logo du PSG ; en thème PSG, une pastille violette pour revenir.
+ * Ces couleurs sont fixes : elles représentent un thème, pas le thème actif.
+ */
+.theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    border-color: var(--border-accent);
+}
+
+.theme-toggle__logo,
+.theme-toggle__dot {
+    grid-area: 1 / 1;
+    transition: transform 0.25s var(--ease);
+}
+
+.theme-toggle__logo {
+    width: 30px;
+    height: 30px;
+}
+
+.theme-toggle__dot {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #a78bfa;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle__logo {
+    display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle__dot {
+    display: block;
+}
+
+.theme-toggle:hover .theme-toggle__logo,
+.theme-toggle:hover .theme-toggle__dot {
+    transform: scale(1.12);
+}
+
 @keyframes navLinkFade {
     from { opacity: 0; transform: translateX(30px); }
     to { opacity: 1; transform: translateX(0); }
@@ -194,10 +335,10 @@ img {
 }
 
 .btn:hover {
-    background: var(--accent-strong);
-    border-color: var(--accent-strong);
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(167, 139, 250, 0.25);
+    box-shadow: 0 10px 24px var(--btn-shadow);
 }
 
 .btn-outline {
@@ -230,13 +371,33 @@ img {
     right: -10%;
     width: min(720px, 90vw);
     aspect-ratio: 1;
-    background: radial-gradient(circle, rgba(167, 139, 250, 0.22), transparent 65%);
+    background: radial-gradient(circle, var(--hero-glow), transparent 65%);
     filter: blur(20px);
+    pointer-events: none;
+}
+
+/* Thème PSG : bande verticale façon maillot, rouge bordé de blanc, sur fond bleu */
+[data-theme="psg"] .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 14%;
+    width: 120px;
+    background: linear-gradient(90deg,
+        var(--psg-blue) 0 22%,
+        #ffffff 22% 26%,
+        var(--accent) 26% 74%,
+        #ffffff 74% 78%,
+        var(--psg-blue) 78% 100%);
+    opacity: 0.9;
+    transform: skewX(-8deg);
     pointer-events: none;
 }
 
 .hero-content {
     position: relative;
+    z-index: 1; /* toujours devant la bande du maillot (thème PSG) */
     width: 100%;
     max-width: var(--container);
     margin: 0 auto;
@@ -252,7 +413,7 @@ img {
 
 .highlight {
     display: inline-block;
-    background: linear-gradient(100deg, var(--accent-strong), var(--accent) 60%);
+    background: var(--highlight-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -332,7 +493,7 @@ img {
 /* ==== À PROPOS ==== */
 .about-content {
     display: grid;
-    grid-template-columns: 1.3fr 0.9fr;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
     gap: 64px;
     align-items: start;
 }
@@ -351,7 +512,7 @@ img {
 
 .about-tiles {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
 }
 
@@ -401,51 +562,101 @@ img {
     color: var(--on-accent);
 }
 
-/* ==== COMPÉTENCES ==== */
-.skills-grid {
+/* ==== COMPÉTENCES ====
+ * Panneaux par catégorie (.skill-group), compétences en étiquettes (.skill-card).
+ */
+.skills-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
 }
 
-.skill-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 20px 22px;
+.skill-group {
+    padding: 28px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s var(--ease);
+    transition: border-color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.skill-group:hover {
+    border-color: var(--border-accent);
+}
+
+.skill-group__title {
+    margin-bottom: 18px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 14px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s ease, transform 0.2s var(--ease);
 }
 
 .skill-card:hover {
-    background: var(--surface-hover);
     border-color: var(--border-accent);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
 }
 
 .skill-card i {
-    font-size: 1.6rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .skill-card:hover i {
     color: var(--accent);
 }
 
-.skill-card h3 {
-    font-family: var(--font-body);
-    font-size: 0.98rem;
-    font-weight: 600;
-    letter-spacing: 0;
+/* Plusieurs icônes pour une même compétence (ex. HTML / CSS) */
+.skill-icons {
+    display: inline-flex;
+    gap: 3px;
+}
+
+/* Pastille texte pour les technos sans icône Font Awesome (ex. TypeScript) */
+.skill-badge {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.1rem;
+    height: 1.1rem;
+    padding: 0 3px;
+    border-radius: 3px;
+    background: var(--text-muted);
+    color: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.skill-card:hover .skill-badge {
+    background: var(--accent);
 }
 
 /* ==== PROJETS ==== */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 24px;
 }
 
@@ -586,7 +797,7 @@ img {
 }
 
 .form-status.success {
-    color: var(--accent-2);
+    color: var(--success);
 }
 
 .form-status.error {
@@ -680,7 +891,7 @@ footer p {
     z-index: 1001;
     width: 0%;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    background: var(--progress-gradient);
     transition: width 0.1s linear;
 }
 
@@ -688,12 +899,76 @@ footer p {
 .reveal {
     opacity: 0;
     translate: 0 24px;
-    transition: opacity 0.6s ease, translate 0.6s var(--ease), border-color 0.3s ease, background 0.3s ease, transform 0.3s var(--ease), box-shadow 0.3s ease;
+    /* Le délai (cascade) ne s'applique qu'à l'apparition, pas aux effets de survol */
+    transition:
+        opacity 0.6s ease var(--reveal-delay, 0s),
+        translate 0.6s var(--ease) var(--reveal-delay, 0s),
+        border-color 0.3s ease, background 0.3s ease, transform 0.3s var(--ease), box-shadow 0.3s ease;
 }
 
 .reveal.is-visible {
     opacity: 1;
     translate: 0 0;
+}
+
+/* ==== ANIMATION ENTRE LES SECTIONS (classes posées par script.js) ====
+ * À l'entrée d'une section : le numéro glisse, le titre monte, un trait d'accent se dessine.
+ */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin-top: 18px;
+    border-radius: 3px;
+    background: var(--accent);
+    transform-origin: left;
+}
+
+.section-animate .section-title {
+    opacity: 0;
+    translate: 0 32px;
+    transition: opacity 0.7s ease, translate 0.7s var(--ease);
+}
+
+.section-animate .section-title::before {
+    opacity: 0;
+    translate: -16px 0;
+    transition: opacity 0.6s ease 0.15s, translate 0.6s var(--ease) 0.15s;
+}
+
+.section-animate .section-title::after {
+    transform: scaleX(0);
+    transition: transform 0.8s var(--ease) 0.3s;
+}
+
+.section-animate.is-in-view .section-title,
+.section-animate.is-in-view .section-title::before {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.section-animate.is-in-view .section-title::after {
+    transform: scaleX(1);
+}
+
+/* Hero : apparition au chargement (le sous-titre a déjà son effet machine à écrire) */
+@keyframes rise-in {
+    from { opacity: 0; translate: 0 28px; }
+    to { opacity: 1; translate: 0 0; }
+}
+
+.hero h1,
+.hero .btn {
+    animation: rise-in 0.9s var(--ease) both;
+}
+
+.hero .btn {
+    animation-delay: 0.5s;
+}
+
+.hero .btn + .btn {
+    animation-delay: 0.6s;
 }
 
 /* ==== PAGES PROJET ==== */
@@ -850,7 +1125,7 @@ footer p {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
     gap: 14px;
     margin-top: 8px;
 }
@@ -890,7 +1165,7 @@ footer p {
 /* Deux colonnes (page To-Do) */
 .split {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 40px;
 }
 
@@ -904,7 +1179,7 @@ footer p {
 }
 
 .stack-grid.two {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .stack-item {
@@ -986,6 +1261,51 @@ footer p {
     margin-top: 40px;
 }
 
+/* ==== PAGE CV ====
+ * Le PDF est dessiné en <canvas class="cv-page"> par script.js : une « feuille » posée sur la page.
+ */
+.cv-actions {
+    justify-content: flex-start;
+    margin-top: 28px;
+}
+
+.cv-viewer {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.cv-page {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #ffffff; /* couleur du papier, identique dans les deux thèmes */
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+}
+
+.cv-page + .cv-page {
+    margin-top: 24px;
+}
+
+.cv-viewer__status {
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px dashed var(--border-accent);
+    border-radius: var(--radius);
+}
+
+.cv-viewer__status a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* Bouton « Voir CV » sur la page du CV elle-même */
+.cv-link[aria-current="page"] {
+    background: var(--accent-soft);
+}
+
 /* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
     :root {
@@ -1029,18 +1349,47 @@ footer p {
         display: block;
     }
 
+    /* Sur mobile, les actions reprennent leur place dans le flux, à droite du logo */
+    .nav-actions {
+        position: static;
+        transform: none;
+    }
+
+    .navbar {
+        padding-right: 5%;
+    }
+
     .section {
         padding: 88px 5%;
+    }
+
+    .skills-categories {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .skill-group {
+        padding: 22px;
     }
 
     .about-content,
     .split,
     .stack-grid.two {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .about-content {
         gap: 40px;
+    }
+
+    /* Tuiles plus compactes : « TECHNOLOGIES » tient dans une demi-largeur dès 320px */
+    .stat-item {
+        padding: 16px;
+    }
+
+    .stat-label {
+        font-size: 0.68rem;
+        letter-spacing: 0.05em;
     }
 
     .project-section {
@@ -1050,6 +1399,13 @@ footer p {
     .scroll-to-top {
         right: 18px;
         bottom: 18px;
+    }
+}
+
+/* Thème PSG : sous 1100px, le sous-titre du hero passerait sur la bande du maillot */
+@media (max-width: 1100px) {
+    [data-theme="psg"] .hero::after {
+        display: none;
     }
 }
 

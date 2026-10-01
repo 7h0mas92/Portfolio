@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Thomas Cornu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Applique le thème choisi avant l'affichage pour éviter un flash (sélecteur dans script.js)
+        try {
+            var theme = new URLSearchParams(location.search).get('theme') || localStorage.getItem('theme');
+            if (theme === 'psg') document.documentElement.dataset.theme = 'psg';
+        } catch (e) {}
+    </script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">TC.</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Accueil</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="index.html#skills">Compétences</a></li>
+            <li><a href="index.html#projects">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a class="cv-link" href="cv.html" aria-current="page">
+                <i class="fas fa-file-lines" aria-hidden="true"></i>Voir CV
+            </a>
+            <button type="button" class="theme-toggle" aria-pressed="false" aria-label="Thème PSG" title="Passer au thème PSG">
+                <img class="theme-toggle__logo" src="images/psg-logo.svg" alt="" aria-hidden="true" />
+                <span class="theme-toggle__dot" aria-hidden="true"></span>
+            </button>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="project-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>Retour à l'accueil
+            </a>
+
+            <div class="project-header">
+                <h1>Mon CV</h1>
+                <p class="project-subtitle">
+                    Étudiant en développement web, en recherche d'alternance.
+                </p>
+                <div class="project-links cv-actions">
+                    <a href="cv/Thomas-Cornu-CV-Alternance.pdf" class="btn" download>
+                        <i class="fas fa-download" aria-hidden="true"></i> Télécharger le PDF
+                    </a>
+                    <a href="index.html#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Me contacter
+                    </a>
+                </div>
+            </div>
+
+            <!-- Le PDF est dessiné ici par PDF.js (section CV de script.js) -->
+            <div class="cv-viewer" id="cvViewer" data-pdf="cv/Thomas-Cornu-CV-Alternance.pdf" aria-live="polite">
+                <p class="cv-viewer__status">
+                    Chargement du CV… Si rien ne s'affiche,
+                    <a href="cv/Thomas-Cornu-CV-Alternance.pdf">ouvrez le PDF</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Thomas Cornu. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <button id="scrollToTop" class="scroll-to-top" title="Retour en haut" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Indicateur de progression de scroll -->
+    <div class="scroll-progress"></div>
+
+    <!-- PDF.js (Mozilla) : affiche le CV dans la page, sans lecteur PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

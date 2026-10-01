@@ -12,6 +12,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Applique le thème choisi avant l'affichage pour éviter un flash (sélecteur dans script.js)
+        try {
+            var theme = new URLSearchParams(location.search).get('theme') || localStorage.getItem('theme');
+            if (theme === 'psg') document.documentElement.dataset.theme = 'psg';
+        } catch (e) {}
+    </script>
 </head>
 <body>
 
@@ -24,10 +31,19 @@
             <li><a href="index.html#projects">Projets</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <div class="nav-actions">
+            <a class="cv-link" href="cv.html">
+                <i class="fas fa-file-lines" aria-hidden="true"></i>Voir CV
+            </a>
+            <button type="button" class="theme-toggle" aria-pressed="false" aria-label="Thème PSG" title="Passer au thème PSG">
+                <img class="theme-toggle__logo" src="images/psg-logo.svg" alt="" aria-hidden="true" />
+                <span class="theme-toggle__dot" aria-hidden="true"></span>
+            </button>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </div>
     </nav>
 
@@ -187,7 +203,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Thomas Cornu. Tous droits réservés.</p>
+            <p>&copy; 2026 Thomas Cornu. Tous droits réservés.</p>
         </div>
     </footer>
 
