@@ -1,191 +1,282 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas Cornu | Développeur Web Junior</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Thomas Cornu | Développeur Web Junior
+    </title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="logo">TC.</div>
-        <ul class="nav-links">
-            <li><a href="#home" data-translate="nav_home">Accueil</a></li>
-            <li><a href="#about" data-translate="nav_about">À propos</a></li>
-            <li><a href="#skills" data-translate="nav_skills">Compétences</a></li>
-            <li><a href="#projects" data-translate="nav_projects">Projets</a></li>
-            <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
+      <div class="logo">TC.</div>
+      <ul class="nav-links">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1><span data-translate="hero_greeting">Salut, je suis</span> <span class="highlight">Thomas Cornu</span></h1>
-            <h2 data-translate="hero_title">Étudiant en Développement Web</h2>
-            <p data-translate="hero_description">J'ai 18 ans et je transforme des idées en sites web fonctionnels et créatifs.</p>
-            <a href="#projects" class="btn" data-translate="hero_btn_projects">Voir mes projets</a>
-            <a href="#contact" class="btn btn-outline" data-translate="hero_btn_contact">Me contacter</a>
-        </div>
+      <div class="hero-content">
+        <h1>
+          Salut, je suis
+          <span class="highlight">Thomas Cornu</span>
+        </h1>
+        <h2>Étudiant en Développement Web</h2>
+        <a href="#projects" class="btn"
+          >Voir mes projets</a
+        >
+        <a href="#contact" class="btn btn-outline"
+          >Me contacter</a
+        >
+      </div>
     </section>
 
     <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title" data-translate="about_title">À propos de moi</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p data-translate="about_p1">Passionné par le numérique depuis mon plus jeune âge, j'ai décidé de transformer cette passion en métier. Actuellement en formation de développement web, j'apprends chaque jour de nouvelles technologies et je développe mes compétences à travers des projets concrets.</p>
-                    <p data-translate="about_p2">Mon approche du développement se base sur trois piliers : la qualité du code, l'expérience utilisateur et l'apprentissage continu. Je suis curieux, persévérant et j'aime résoudre des problèmes complexes grâce au code.</p>
-                    <p data-translate="about_p3">Toujours à l'écoute des dernières tendances du web, je m'efforce de créer des sites modernes, performants et accessibles.</p>
-                </div>
-                <div class="about-tiles">
-                    <div class="stat-item">
-                        <span class="stat-number">18</span>
-                        <span class="stat-label" data-translate="stat_years">Ans</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label" data-translate="stat_projects">Projets</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">6+</span>
-                        <span class="stat-label" data-translate="stat_technologies">Technologies</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label" data-translate="stat_motivation">Motivation</span>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">À propos de moi</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Passionné par le numérique depuis mon plus jeune âge, j'ai décidé
+              de transformer cette passion en métier. Actuellement en formation
+              de développement web, j'apprends chaque jour de nouvelles
+              technologies et je développe mes compétences à travers des projets
+              concrets.
+            </p>
+            <p>
+              Mon approche du développement se base sur trois piliers : la
+              qualité du code, l'expérience utilisateur et l'apprentissage
+              continu. Je suis curieux, persévérant et j'aime résoudre des
+              problèmes complexes grâce au code.
+            </p>
+            <p>
+              Toujours à l'écoute des dernières tendances du web, je m'efforce
+              de créer des sites modernes, performants et accessibles.
+            </p>
+          </div>
+          <div class="about-tiles">
+            <div class="stat-item">
+              <span class="stat-number">19</span>
+              <span class="stat-label">Ans</span>
             </div>
+            <div class="stat-item">
+              <span class="stat-number">3+</span>
+              <span class="stat-label">Projets</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">6+</span>
+              <span class="stat-label"
+                >Technologies</span
+              >
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label"
+                >Motivation</span
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="skills" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-title" data-translate="skills_title">Mes Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>React (Base)</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-git-alt"></i>
-                    <h3>Git / GitHub</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-terminal"></i>
-                    <h3>VS Code</h3>
-                </div>
-            </div>
+      <div class="container">
+        <h2 class="section-title">Mes Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="fab fa-html5"></i>
+            <h3>HTML5</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-css3-alt"></i>
+            <h3>CSS3</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-js"></i>
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-react"></i>
+            <h3>React (Base)</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-git-alt"></i>
+            <h3>Git / GitHub</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-terminal"></i>
+            <h3>VS Code</h3>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title" data-translate="projects_title">Mes Projets</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="images/projet1.png" alt="Projet docker Laravel">
-                    </div>
-                    <div class="project-info">
-                        <h3 data-translate="project1_title">Projet docker Laravel</h3>
-                        <p data-translate="project1_description">Deux sites Laravel partagent une MySQL via Docker (Nginx, PHP-FPM) : conteneurisation et scalabilité.</p>
-                        <div class="tech-stack">
-                            <span>Docker</span><span>Laravel</span><span>MySQL</span><span>Nginx</span>
-                        </div>
-                        <a href="docker.html" class="project-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="images/projet2.png" alt="Aperçu To‑Do List">
-                    </div>
-                    <div class="project-info">
-                        <h3 data-translate="project2_title">Site To-Do List</h3>
-                        <p data-translate="project2_description">Todo : créer, filtrer, rechercher ; données en LocalStorage ; UI moderne et responsive.</p>
-                        <div class="tech-stack">
-                            <span>JavaScript</span><span>LocalStorage</span>
-                        </div>
-                        <a href="todolist.html" class="project-link">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="images/projet3.png" alt="Portfolio V1">
-                    </div>
-                    <div class="project-info">
-                        <h3 data-translate="project3_title">Portfolio V1</h3>
-                        <p data-translate="project3_description">Portfolio responsive, navigation fluide, animations CSS.</p>
-                        <div class="tech-stack">
-                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
-                        </div>
-                        <a href="https://7h0mas92.github.io/Portfolio/" class="project-link" data-translate="project_link">Voir le code <i class="fab fa-github"></i></a>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">Mes Projets</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="images/projet1.png"
+                alt="Aperçu du projet Docker Laravel"
+              />
             </div>
+            <div class="project-info">
+              <h3>Projet docker Laravel</h3>
+              <p>
+                Deux sites Laravel partagent une MySQL via Docker (Nginx,
+                PHP-FPM) : conteneurisation et scalabilité.
+              </p>
+              <div class="tech-stack">
+                <span>Docker</span><span>Laravel</span><span>MySQL</span><span>Nginx</span>
+              </div>
+              <a href="docker.html" class="project-link"
+                >Voir le projet
+                <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="images/projet2.png"
+                alt="Aperçu du site To-Do List"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Site To-Do List</h3>
+              <p>
+                Todo : créer, filtrer, rechercher ; données en LocalStorage ; UI
+                moderne et responsive.
+              </p>
+              <div class="tech-stack">
+                <span>JavaScript</span><span>LocalStorage</span>
+              </div>
+              <a href="todolist.html" class="project-link"
+                >Voir le projet
+                <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img">
+              <img
+                src="images/projet3.png"
+                alt="Aperçu du Portfolio V1"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Portfolio V1</h3>
+              <p>
+                Portfolio responsive, navigation fluide, animations CSS.
+              </p>
+              <div class="tech-stack">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+              </div>
+              <a
+                href="https://7h0mas92.github.io/Portfolio/"
+                class="project-link"
+                >Voir le code
+                <i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="contact" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-title" data-translate="contact_title">Contactez-moi</h2>
-            <p style="text-align: center; color: #ccc;" data-translate="contact_subtitle">Une opportunité ou une question ? N'hésitez pas !</p>
-            
-            <form class="contact-form" id="contactForm">
-                <input type="text" name="name" data-translate-placeholder="contact_name" placeholder="Votre Nom" required>
-                <input type="email" name="email" data-translate-placeholder="contact_email" placeholder="Votre Email" required>
-                <textarea rows="5" name="message" data-translate-placeholder="contact_message" placeholder="Votre Message" required></textarea>
-                <button type="submit" class="btn" data-translate="contact_btn">Envoyer</button>
-                <div class="form-status" id="contactStatus" aria-live="polite"></div>
-            </form>
+      <div class="container">
+        <h2 class="section-title">Contactez-moi</h2>
+        <p class="section-lead">
+          Une opportunité ou une question ? N'hésitez pas !
+        </p>
 
-            <div class="social-links">
-                <a href="https://github.com/7h0mas92"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/thomas-cornu-04bbb1366"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:tcornu92@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+        <form class="contact-form" id="contactForm">
+          <input
+            type="text"
+            name="name"
+            placeholder="Votre Nom"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Votre Email"
+            required
+          />
+          <textarea
+            rows="5"
+            name="message"
+            placeholder="Votre Message"
+            required
+          ></textarea>
+          <button type="submit" class="btn">
+            Envoyer
+          </button>
+          <div class="form-status" id="contactStatus" aria-live="polite"></div>
+        </form>
+
+        <div class="social-links">
+          <a href="https://github.com/7h0mas92"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/thomas-cornu-04bbb1366"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a href="mailto:tcornu92@gmail.com"
+            ><i class="fas fa-envelope"></i
+          ></a>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Thomas Cornu. <span data-translate="footer_rights">Tous droits réservés.</span></p>
-            <button id="langToggle" class="lang-toggle" title="Changer de langue">
-                <span class="lang-icon">🇫🇷</span>
-            </button>
-        </div>
+      <div class="footer-content">
+        <p>
+          &copy; 2024 Thomas Cornu.
+          Tous droits réservés.
+        </p>
+      </div>
     </footer>
 
     <!-- Bouton retour en haut -->
-    <button id="scrollToTop" class="scroll-to-top" title="Retour en haut">
-        <i class="fas fa-arrow-up"></i>
+    <button
+      id="scrollToTop"
+      class="scroll-to-top"
+      title="Retour en haut"
+      aria-label="Retour en haut"
+    >
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- Indicateur de progression de scroll -->
     <div class="scroll-progress"></div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
